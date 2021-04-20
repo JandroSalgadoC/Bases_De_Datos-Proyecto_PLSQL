@@ -6,7 +6,7 @@
 */
 SET SERVEROUT ON;
 --Creo el procedimiento, que recibirá el codigo de la pelicula, el nif del distribuidor y el formato de la copia.
-CREATE OR REPLACE PROCEDURE p_insertar_copia_v2 (v_cod_pel VARCHAR2, v_nif_dist VARCHAR2, v_formato VARCHAR2) 
+CREATE OR REPLACE PROCEDURE p_insertar_copia (v_cod_pel VARCHAR2, v_nif_dist VARCHAR2, v_formato VARCHAR2) 
     IS
         r_pelicula pelicula.nombre%TYPE;
         r_distribuidor distribuidor.nombre%TYPE;
@@ -67,5 +67,7 @@ EXEC p_insertar_copia_v2('JPI','D05095732','DVD');
 select * from copia_fisica;
 rollback;      
 SET SERVEROUTPUT ON;       
+
+DROP PROCEDURE P_INSERTAR_COPIA_V2;
     
     
