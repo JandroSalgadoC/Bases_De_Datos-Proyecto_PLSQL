@@ -1,5 +1,4 @@
 
-
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'34950782M','Alejandro', 'Salgado', 'Cerdeira', 'Montequinto', 'ragg@hotmail.com',0);
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'85641873Q','Laura', 'Minguet', 'Criado', 'Utrera', null,0);
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'08920704Q','Mario', 'García', 'Navarro', 'Sevilla', 'jupot@gmail.com',0);
@@ -20,8 +19,6 @@ INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'23161510G','Javier', 'Díaz', 
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'07783618G','Adrián', 'Yuste', 'González', 'Castilleja de la Cuesta', 'adri@hotmail.com',4.5);
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'80470083Y','David', 'Chamizo', null, 'Tomares', 'harleymix@yahoo.com',0);
 INSERT INTO cliente VALUES (SEQ_NUM_SOCIO.nextval,'60657362Z','Belén', 'Rodríguez', 'Márquez', 'Montequinto', 'berm@gmail.com',0);
-
-
 
 INSERT INTO pelicula VALUES ('JPI','Jurassic Park','Steven Spielberg','Sam Neill','Laura Dern','Universal Pictures','1993','Ciencia Ficción');
 INSERT INTO pelicula VALUES ('JPII','Jurassic Park II: El Mundo Perdido','Steven Spielberg','Jeff Goldblum','Julianne Moore','Universal Pictures','1997','Ciencia Ficción');
@@ -60,8 +57,6 @@ INSERT INTO pelicula VALUES ('VDVEN','V de Vendetta','James McTeigue','Hugo Weav
 INSERT INTO pelicula VALUES ('HEREDI','Hereditary','Ari Aster','Toni Collette','Alex Wolff','A24','2018','Terror');
 INSERT INTO pelicula VALUES ('MIDSOM','Midsommar','Ari Aster','Florence Pugh','Jack Reynor','A24','2019','Terror');
 INSERT INTO pelicula VALUES ('AMORIM','Los amores imaginarios','Xavier Dolan','Xavier Dolan','Anne Dorval','Alliance Atlantis','2010','Romance');
-
-
 
 INSERT INTO DISTRIBUIDOR VALUES ('D05095732','A CONTRACORRIENTE FILMS SL','C/ Lincoln, 11, Barcelona', 935398536,'ventas@acontracorrientefilms.com','Carles Bodell');
 INSERT INTO DISTRIBUIDOR VALUES ('R4914917B','EONE FILMS','Avd. de Burgos,12, Madrid',917684800,'info@eone.es','Sara Gurruchaga');
@@ -179,7 +174,6 @@ EXEC p_insertar_copia('MIDSOM','R4914917B','BR');
 EXEC p_insertar_copia('MIDSOM','R4914917B','BR');
 EXEC p_insertar_copia('AMORIM','R4914917B','DVD');
 
-
 INSERT INTO PRESTAMO VALUES ('JPIBR1','34950782M','07-03-2015','10-03-2015',9,'S');
 INSERT INTO PRESTAMO VALUES ('JPIIVHS1','34950782M','07-03-2015','10-03-2015',3,'S');
 INSERT INTO PRESTAMO VALUES ('KOYQATDVD1','48241838M','11-06-2015','13-06-2015',4,'S');
@@ -191,4 +185,9 @@ INSERT INTO PRESTAMO VALUES ('LOTRIDVD2','08920704Q','29-10-2015','31-10-2015',4
 INSERT INTO PRESTAMO VALUES ('MTRXIDVD3','48241838M','15-02-2015','18-02-2015',6,'S');
 INSERT INTO PRESTAMO VALUES ('AGORADVD1','75868435Z','18-09-2015','20-09-2015',4,'S');
 INSERT INTO PRESTAMO VALUES ('NOSFERDVD2','22958825H','05-08-2015','06-08-2015',2,'S');
+INSERT INTO PRESTAMO VALUES ('MIDSOMBR1','46142863X','12-12-2015',NULL,NULL,'N');
+INSERT INTO PRESTAMO VALUES ('VDVENDVD2','58005550X','08-01-2015','12-01-2015',8,'N');
+INSERT INTO PRESTAMO VALUES ('LOTRIBR3','29985612Y','06-05-2015','09-05-2015',9,'N');
+INSERT INTO PRESTAMO VALUES ('JUWOIBR2','37905847F','05-07-2015',NULL,NULL,'N');
+INSERT INTO PRESTAMO VALUES ('HEREDIBR2','40236732A','07-10-2015','10-10-2015',9,'N');
 

@@ -52,12 +52,16 @@ CREATE OR REPLACE PROCEDURE p_listado_balance_anual (v_anio VARCHAR2) IS
     v_lista_sin_devolver VARCHAR2(30000);
     v_sin_devolver NUMBER:=0;
     
+    --Declaro excepciones:
+    e_aniomenor EXCEPTION;
+    e_aniomayor EXCEPTION;
+    
 BEGIN   
     --Compruebo que el rango de año es válido:
     IF v_anio < 2015 THEN
-             RAISE_APPLICATION_ERROR(-20004,'Nuestro vidoclub abrió en 2015, no puede consultar datos de años previos.');
+        RAISE e_aniomenor;
     ELSIF v_anio > TO_CHAR(SYSDATE, 'YYYY') THEN
-         RAISE_APPLICATION_ERROR(-20005,'No puede consultar datos de años que aún no han ocurrido.');        
+         RAISE e_aniomayor;        
     END IF;
     --Muestro el inicio del listado con el año a resumir:
     DBMS_OUTPUT.PUT_LINE('BALANCE TOTAL AÑO: '|| v_anio); 
@@ -155,10 +159,16 @@ BEGIN
             DBMS_OUTPUT.PUT_LINE('  - Total pagado: ' || v_anual_pagos||'     Total a deber: '||v_anual_deuda);
     CLOSE c_periodo;--Cierro cursor principal.  
         
-    EXCEPTION
+    EXCEPTION--Recojo excepciones:
+        WHEN e_aniomenor THEN
+            dbms_output.put_line('ERROR ORA-20004: Nuestro videoclub abrió en 2015, no puede consultar datos de años previos.');
+        WHEN e_aniomayor THEN    
+            dbms_output.put_line('ERROR ORA-20005: No puede consultar datos de años posteriores al actual.');
+        WHEN NO_DATA_FOUND THEN
+            dbms_output.put_line('No se han encontrado datos en la base para el año '||v_anio);
         WHEN OTHERS THEN--Cualquier otra excepción que no podamos preveer.   
-                dbms_output.put_line('Se ha producido el siguiente error: '||sqlerrm);
+            dbms_output.put_line('Se ha producido el siguiente error: '||sqlerrm);
 END;--Fin procedimiento.
 /
-
-EXEC p_listado_balance_anual ('2015');
+set serveroutput on;
+EXEC p_listado_balance_anual_ex ('2019');
